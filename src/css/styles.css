@@ -44,10 +44,11 @@
 }
 
 .modal {
-  position: absolute;
+  position: fixed;
   top: 0;
+  left: 0;
   height: 100%;
-  width: 100vw;
+  width: 100%;
 
   display: flex;
   justify-content: center;
@@ -61,9 +62,16 @@
   animation-timing-function: var(--timing-function);
 }
 
+.is-hidden {
+  opacity: 0;
+  transform: scale(0.5);
+  transition: all var(--animation-duration) var(--timing-function);
+}
+
 @keyframes showUp {
+
     0% {
-      transform: scale(0.7);
+      transform: scale(0.5);
       opacity: 0;
     }
 

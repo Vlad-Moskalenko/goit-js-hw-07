@@ -45,9 +45,12 @@ function showImageModal(objModal){
 }
 
 function closeImageModal(e) {
-  e.target === e.currentTarget || e.code === 'Escape'? instance.close() : null;
 
-  window.removeEventListener('keydown', closeImageModal)
+  if(e.target === e.currentTarget || e.code === 'Escape') {
+    document.querySelector('.modal').classList.add('is-hidden')
+    instance.close()
+    window.removeEventListener('keydown', closeImageModal)
+  }
 }
 
 
