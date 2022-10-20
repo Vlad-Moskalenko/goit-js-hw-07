@@ -4,8 +4,6 @@ import { galleryItems } from './gallery-items.js';
 const galleryWrapper = document.querySelector('.gallery')
 let instance;
 
-window.addEventListener('load', showGallery)
-
 function showGallery() {
   galleryWrapper.innerHTML = createGallery()
 }
@@ -16,6 +14,8 @@ function createGallery(){
   }).join('')
   )
 }
+
+showGallery()
 
 galleryWrapper.addEventListener('click', onGalleryImageClick)
 
@@ -40,18 +40,13 @@ function createImageModal(url) {
 function showImageModal(objModal){
   objModal.show()
 
-  document.querySelector('.modal').addEventListener('click', closeImageModal)
   window.addEventListener('keydown', closeImageModal)
 }
 
 function closeImageModal(e) {
 
-  if(e.target === e.currentTarget || e.code === 'Escape') {
-    document.querySelector('.modal').classList.add('is-hidden')
+  if(e.code === 'Escape') {
     instance.close()
     window.removeEventListener('keydown', closeImageModal)
   }
 }
-
-
-
