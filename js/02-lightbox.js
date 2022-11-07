@@ -2,12 +2,11 @@ import { galleryItems } from './gallery-items.js';
 // Change code below this line
 const galleryWrapper = document.querySelector('.gallery')
 
+showGallery()
+
 function showGallery() {
   galleryWrapper.innerHTML = createGallery()
 }
-
-//як зробити автозапуск функції, при події load бібліотека праює некоректно
-showGallery()
 
 function createGallery(){
   return (galleryItems.map(({preview, original, description}) => {
@@ -16,7 +15,7 @@ function createGallery(){
   )
 }
 
-const lightbox = new SimpleLightbox('.gallery a', {
+new SimpleLightbox('.gallery a', {
   captionsData: 'alt',
   captionDelay: 250,
  });
